@@ -7,7 +7,7 @@ import time
 
 def main():
     if len(sys.argv) == 1:
-        print("Usage: sys.argv[0] command [arguments]")
+        print("Usage: {0} command [arguments]".format(sys.argv[0]))
     else:
         while True:
             command = subprocess.Popen(sys.argv[1:])
