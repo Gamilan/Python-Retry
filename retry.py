@@ -5,6 +5,8 @@ import subprocess
 import sys
 import time
 
+WAIT = 1
+
 def main():
     if len(sys.argv) == 1:
         print("Usage: {0} command [arguments]".format(sys.argv[0]))
@@ -12,9 +14,8 @@ def main():
         while True:
             command = subprocess.Popen(sys.argv[1:])
             command.wait()
-            returncode = command.returncode
-            if returncode:
-                time.sleep(1)
+            if command.returncode != 0:
+                time.sleep(WAIT)
             else:
                 break
   
